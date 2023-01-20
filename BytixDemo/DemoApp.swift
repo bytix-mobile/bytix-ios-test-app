@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Bytix
 
 @main
 struct DemoApp: App {
