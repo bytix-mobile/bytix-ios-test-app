@@ -1,6 +1,5 @@
 //
 //  ContentViewModel.swift
-//  DemoApp
 //
 //  Created by Vladislav Mashkov on 11.01.2023.
 //

@@ -1,6 +1,5 @@
 //
 //  ContentView.swift
-//  DemoApp
 //
 //  Created by Denis Gryzlov on 30.03.2022.
 //

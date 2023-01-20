@@ -1,8 +1,8 @@
 platform :ios, '15.0'
 
-target 'DemoApp' do
+target 'BytixDemo' do
   use_frameworks!
 
-  pod 'Bytix', '~> 1.0.0'
+  pod 'Bytix', '~> 1.0'
 
 end
