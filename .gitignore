@@ -6,3 +6,6 @@ xcuserdata/
 DerivedData/
 *.xcbkptlist
 
+Podfile.lock
+BytixDemo.xcworkspace/contents.xcworkspacedata
+BytixDemo.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
