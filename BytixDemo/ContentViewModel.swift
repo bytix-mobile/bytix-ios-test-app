@@ -37,19 +37,6 @@ final class ContentViewModel: ObservableObject {
 }
 
 extension ContentViewModel: BytixDelegate {
-    
-    func bytix(connectedTo device: BytixBeacon) {
-        print("con")
-    }
-    
-    func bytix(disconnectedFrom device: BytixBeacon) {
-        print("dis")
-    }
-    
-    func bytix(lost device: BytixBeacon) {
-       print("los")
-    }
-    
     func didUpdatedBeacons() {
         beacons = btxManager.getBeacons()
     }

@@ -67,6 +67,7 @@ struct ContentView: View {
     func ScanIndicator() -> some View {
         HStack {
             Text("Идет сканирование...")
+                .foregroundColor(.white)
             RadarLoader()
         }.frame(maxWidth: .infinity, alignment: .trailing)
     }

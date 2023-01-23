@@ -37,7 +37,7 @@ struct BeaconRow: View {
                 
                 HStack(alignment: .center) {
                     Text(beacon.connectionState.rawValue)
-                        .foregroundColor(beaconConnected ? .green : .black)
+                        .foregroundColor(beaconConnected ? .green : .gray)
                 }
                 
             }
@@ -45,9 +45,7 @@ struct BeaconRow: View {
             Spacer()
             
             VStack(alignment: .trailing) {
-                Text(BytixBeacon
-                    .ApproximateDistance(beacon.rssi)
-                    .description)
+                Text(beacon.approximateDistance)
                     .font(.system(size: 12).bold())
                     .foregroundColor(.accentColor)
                 Text(String(beacon.rssi))
