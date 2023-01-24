@@ -27,7 +27,6 @@
 		879C208027F4605400916D1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		879C208227F4605500916D1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		879C208527F4605500916D1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		879C20D027F4622B00916D1F /* Bytix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bytix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C507834AC6BF720FFBA89BC8 /* Pods-BytixDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BytixDemo.debug.xcconfig"; path = "Target Support Files/Pods-BytixDemo/Pods-BytixDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D6E24416E5F52184591BA07C /* Pods-BytixDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BytixDemo.release.xcconfig"; path = "Target Support Files/Pods-BytixDemo/Pods-BytixDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +95,6 @@
 		879C20A027F460F800916D1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				879C20D027F4622B00916D1F /* Bytix.framework */,
 				5ABF07DC5799F182A4AB207F /* Pods_BytixDemo.framework */,
 			);
 			name = Frameworks;
@@ -354,6 +352,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Приложение использует Bluetooth для поиска, подключения и взаимодействия с удаленными устройствами";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -388,6 +387,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Приложение использует Bluetooth для поиска, подключения и взаимодействия с удаленными устройствами";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
