@@ -17,49 +17,60 @@ struct BeaconRow: View {
     var isInfoResponsed: Bool { beacon.deviceId != nil }
     
     var body: some View {
-        HStack {
+        HStack(spacing: 16) {
             
-            Image("beacon")
-                .resizable()
-                .frame(width: 64, height: 64)
-                .padding(.leading, 8)
+            BeaconImage()
             
-            VStack(alignment: .leading) {
-                if isInfoResponsed {
-                    Text("Device id: \(beacon.deviceId!)")
-                        .foregroundColor(.green)
-                        .font(.system(size: 15)).bold()
-                } else {
-                    Text("No info about device")
-                        .foregroundColor(.red)
-                        .font(.system(size: 15)).bold()
-                }
-                
-                HStack(alignment: .center) {
-                    Text(beacon.connectionState.rawValue)
-                        .foregroundColor(beaconConnected ? .green : .gray)
-                }
-                
-            }
+            MainInfoPanel()
             
             Spacer()
             
-            VStack(alignment: .trailing) {
-                Text(beacon.approximateDistance)
-                    .font(.system(size: 12).bold())
-                    .foregroundColor(.accentColor)
-                Text(String(beacon.rssi))
-                    .font(.system(size: 10))
-            }.padding(.trailing, 8)
+            SignalPanel()
             
         }
-        .padding([.top, .bottom], 8)
+        .frame(height: 100)
         .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(beaconDisconnected ? Color.red : beaconConnected ? Color.green : Color.gray, lineWidth: 2)
+            RoundedRectangle(cornerRadius: 12).stroke(Color.blue, lineWidth: beacon.connectionState == .connected ? 2 : 0)
         )
-        
+    }
+    
+    func BeaconImage() -> some View {
+        Image(beaconConnected ? "beacon-connected" : "beacon-found")
+            .padding(.leading, 16)
+    }
+    
+    func MainInfoPanel() -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Unknown")
+                .font(.system(size: 18, weight: .medium))
+                .padding([.top], 8)
+            HStack(spacing: 8) {
+                VStack(alignment: .trailing, spacing: 4) {
+                    Text("Device Id:")
+                    Text("Group Id:")
+                    Text("Realm:")
+                }
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("BB123FF1")
+                    Text("20005000")
+                    Text("cppk")
+                }
+            }
+            .font(.system(size: 14, weight: .regular))
+            .padding(.bottom, 8)
             
+        }
+    }
+    
+    func SignalPanel() -> some View {
+        VStack {
+            Text("\(beacon.rssi) dBm")
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(.yellow)
+                .padding(.trailing, 16)
+                .padding(.top, 8)
+            Spacer()
+        }
     }
 }
 

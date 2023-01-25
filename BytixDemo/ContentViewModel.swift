@@ -11,6 +11,7 @@ final class ContentViewModel: ObservableObject {
     
     @Published var isScanning: Bool = false
     @Published var beacons: [BytixBeacon] = []
+    @Published var hasDevice: Bool = false
     
     let btxManager: BytixSDK
     
@@ -39,5 +40,6 @@ final class ContentViewModel: ObservableObject {
 extension ContentViewModel: BytixDelegate {
     func didUpdatedBeacons() {
         beacons = btxManager.getBeacons()
+        hasDevice = !beacons.isEmpty
     }
 }
