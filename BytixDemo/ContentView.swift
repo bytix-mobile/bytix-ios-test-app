@@ -52,6 +52,7 @@ struct ContentView: View {
             ForEach(viewModel.beacons, id: \.self) { beacon in
                 BeaconRow(beacon: beacon)
             }
+            Spacer()
         }.padding(16)
     }
     

@@ -32,6 +32,9 @@ struct BeaconRow: View {
         .overlay(
             RoundedRectangle(cornerRadius: 12).stroke(Color.blue, lineWidth: beacon.connectionState == .connected ? 2 : 0)
         )
+        .background(
+            RoundedRectangle(cornerRadius: 12).fill(Color("cellBackgroundColor"))
+        )
     }
     
     func BeaconImage() -> some View {
@@ -41,9 +44,10 @@ struct BeaconRow: View {
     
     func MainInfoPanel() -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text("Unknown")
+            Text(beacon.deviceName ?? "unknown")
                 .font(.system(size: 18, weight: .medium))
                 .padding([.top], 8)
+                .opacity(beacon.deviceName == nil ? 0.5 : 1)
             HStack(spacing: 8) {
                 VStack(alignment: .trailing, spacing: 4) {
                     Text("Device Id:")
@@ -51,10 +55,13 @@ struct BeaconRow: View {
                     Text("Realm:")
                 }
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("BB123FF1")
-                    Text("20005000")
-                    Text("cppk")
-                }
+                    Text(beacon.deviceId?.uppercased() ?? "unknown")
+                        .opacity(beacon.deviceId == nil ? 0.5 : 1)
+                    Text(beacon.groupId ?? "unknown")
+                        .opacity(beacon.groupId == nil ? 0.5 : 1)
+                    Text(beacon.realm ?? "unknown")
+                        .opacity(beacon.realm == nil ? 0.5 : 1)
+                }.foregroundColor(Color(.label))
             }
             .font(.system(size: 14, weight: .regular))
             .padding(.bottom, 8)
@@ -66,7 +73,7 @@ struct BeaconRow: View {
         VStack {
             Text("\(beacon.rssi) dBm")
                 .font(.system(size: 14, weight: .regular))
-                .foregroundColor(.yellow)
+                .foregroundColor(beacon.approximateDistance == .close ? Color("beaconCloseColor") : beacon.approximateDistance == .near ? Color("beaconMediumColor") : Color("beaconFarColor"))
                 .padding(.trailing, 16)
                 .padding(.top, 8)
             Spacer()
@@ -76,8 +83,9 @@ struct BeaconRow: View {
 
 struct BeaconRow_Previews: PreviewProvider {
     static var previews: some View {
-        BeaconRow(beacon: .init(rssi: -71,
-                                deviceId: "2",
-                                connectionState: .connected))
+        BeaconRow(beacon: BytixBeacon(rssi: -54, deviceName: nil,
+                                      deviceId: "ffd52f3", groupId: nil,
+                                      realm: "cppk",
+                                      connectionState: .connected))
     }
 }
