@@ -1,6 +1,5 @@
 //
 //  ContentViewModel.swift
-//  DemoApp
 //
 //  Created by Vladislav Mashkov on 11.01.2023.
 //
@@ -12,6 +11,7 @@ final class ContentViewModel: ObservableObject {
     
     @Published var isScanning: Bool = false
     @Published var beacons: [BytixBeacon] = []
+    @Published var hasDevice: Bool = false
     
     let btxManager: BytixSDK
     
@@ -38,20 +38,8 @@ final class ContentViewModel: ObservableObject {
 }
 
 extension ContentViewModel: BytixDelegate {
-    
-    func bytix(connectedTo device: BytixBeacon) {
-        print("con")
-    }
-    
-    func bytix(disconnectedFrom device: BytixBeacon) {
-        print("dis")
-    }
-    
-    func bytix(lost device: BytixBeacon) {
-       print("los")
-    }
-    
     func didUpdatedBeacons() {
         beacons = btxManager.getBeacons()
+        hasDevice = !beacons.isEmpty
     }
 }

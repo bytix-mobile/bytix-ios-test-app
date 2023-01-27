@@ -1,15 +1,14 @@
 //
-//  DemoAppApp.swift
-//  DemoApp
+//  BytixDemo.swift
+//  BytixDemo
 //
 //  Created by Denis Gryzlov on 30.03.2022.
 //
 
 import SwiftUI
-import Bytix
 
 @main
-struct DemoApp: App {
+struct BytixDemo: App {
         
     var body: some Scene {
         WindowGroup {
