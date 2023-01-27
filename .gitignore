@@ -2,9 +2,13 @@
 /.build
 /Packages
 xcuserdata/
+Xcshareddata/
 DerivedData/
 *.xcbkptlist
 
 Podfile.lock
 BytixDemo.xcworkspace/contents.xcworkspacedata
 BytixDemo.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+Bytix.xcframework/
+Pods/
+project.xcworkspace/
