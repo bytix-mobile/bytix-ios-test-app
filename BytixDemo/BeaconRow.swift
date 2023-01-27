@@ -71,12 +71,20 @@ struct BeaconRow: View {
     
     func SignalPanel() -> some View {
         VStack {
-            Text("\(beacon.rssi) dBm")
+            Text(rssiText)
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(beacon.approximateDistance == .close ? Color("beaconCloseColor") : beacon.approximateDistance == .near ? Color("beaconMediumColor") : Color("beaconFarColor"))
                 .padding(.trailing, 16)
                 .padding(.top, 8)
             Spacer()
+        }
+    }
+    
+    var rssiText: String {
+        if let rssi = beacon.rssi {
+            return "\(rssi) dBm"
+        } else {
+            return "---"
         }
     }
 }
