@@ -7,33 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4143C87929C4E7AD00F8AAF3 /* Bytix in Frameworks */ = {isa = PBXBuildFile; productRef = 4143C87829C4E7AD00F8AAF3 /* Bytix */; };
+		4143C87B29C5089300F8AAF3 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143C87A29C5089300F8AAF3 /* MetricsView.swift */; };
 		41441693296EBFE400B42376 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41441692296EBFE400B42376 /* ContentViewModel.swift */; };
 		41441699296EE26A00B42376 /* BeaconRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41441698296EE26A00B42376 /* BeaconRow.swift */; };
 		4144169B296F1B5C00B42376 /* RadarLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144169A296F1B5C00B42376 /* RadarLoader.swift */; };
-		41CB3200299A67C100BE85C0 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = 41CB31FF299A67C100BE85C0 /* SwiftProtobuf */; };
-		41CB3201299A682E00BE85C0 /* Bytix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CB31F4299A669200BE85C0 /* Bytix.framework */; };
-		41CB3202299A682E00BE85C0 /* Bytix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41CB31F4299A669200BE85C0 /* Bytix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		879C207F27F4605400916D1F /* BytixDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C207E27F4605400916D1F /* BytixDemo.swift */; };
 		879C208127F4605400916D1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C208027F4605400916D1F /* ContentView.swift */; };
 		879C208327F4605500916D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879C208227F4605500916D1F /* Assets.xcassets */; };
 		879C208627F4605500916D1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879C208527F4605500916D1F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		41CB3203299A682E00BE85C0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				41CB3202299A682E00BE85C0 /* Bytix.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		4143C87A29C5089300F8AAF3 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		41441692296EBFE400B42376 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		41441698296EE26A00B42376 /* BeaconRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRow.swift; sourceTree = "<group>"; };
 		4144169A296F1B5C00B42376 /* RadarLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarLoader.swift; sourceTree = "<group>"; };
@@ -50,8 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41CB3200299A67C100BE85C0 /* SwiftProtobuf in Frameworks */,
-				41CB3201299A682E00BE85C0 /* Bytix.framework in Frameworks */,
+				4143C87929C4E7AD00F8AAF3 /* Bytix in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +74,7 @@
 				879C207E27F4605400916D1F /* BytixDemo.swift */,
 				879C208027F4605400916D1F /* ContentView.swift */,
 				41441698296EE26A00B42376 /* BeaconRow.swift */,
+				4143C87A29C5089300F8AAF3 /* MetricsView.swift */,
 				4144169A296F1B5C00B42376 /* RadarLoader.swift */,
 				41441692296EBFE400B42376 /* ContentViewModel.swift */,
 				879C208227F4605500916D1F /* Assets.xcassets */,
@@ -115,7 +101,6 @@
 				879C207727F4605400916D1F /* Sources */,
 				879C207827F4605400916D1F /* Frameworks */,
 				879C207927F4605400916D1F /* Resources */,
-				41CB3203299A682E00BE85C0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,7 +108,7 @@
 			);
 			name = BytixDemo;
 			packageProductDependencies = (
-				41CB31FF299A67C100BE85C0 /* SwiftProtobuf */,
+				4143C87829C4E7AD00F8AAF3 /* Bytix */,
 			);
 			productName = DemoApp;
 			productReference = 879C207B27F4605400916D1F /* BytixDemo.app */;
@@ -154,7 +139,7 @@
 			);
 			mainGroup = 879C207227F4605400916D1F;
 			packageReferences = (
-				41CB31F8299A674500BE85C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				4143C87729C4E7AD00F8AAF3 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */,
 			);
 			productRefGroup = 879C207C27F4605400916D1F /* Products */;
 			projectDirPath = "";
@@ -186,6 +171,7 @@
 				879C208127F4605400916D1F /* ContentView.swift in Sources */,
 				879C207F27F4605400916D1F /* BytixDemo.swift in Sources */,
 				41441699296EE26A00B42376 /* BeaconRow.swift in Sources */,
+				4143C87B29C5089300F8AAF3 /* MetricsView.swift in Sources */,
 				41441693296EBFE400B42376 /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,21 +389,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		41CB31F8299A674500BE85C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+		4143C87729C4E7AD00F8AAF3 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			repositoryURL = "https://github.com/bytix-mobile/bytix-ios-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		41CB31FF299A67C100BE85C0 /* SwiftProtobuf */ = {
+		4143C87829C4E7AD00F8AAF3 /* Bytix */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 41CB31F8299A674500BE85C0 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
+			package = 4143C87729C4E7AD00F8AAF3 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */;
+			productName = Bytix;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

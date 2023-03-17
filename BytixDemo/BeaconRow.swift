@@ -17,18 +17,24 @@ struct BeaconRow: View {
     var isInfoResponsed: Bool { beacon.deviceId != nil }
     
     var body: some View {
-        HStack(spacing: 16) {
-            
-            BeaconImage()
-            
-            MainInfoPanel()
-            
-            Spacer()
-            
-            SignalPanel()
-            
+        VStack(spacing: 4) {
+            HStack(spacing: 16) {
+                
+                BeaconImage()
+                
+                MainInfoPanel()
+                
+                Spacer()
+                
+                SignalPanel()
+                
+            }
+            .frame(height: 100)
+            if let metrics = beacon.metrics {
+                MetricsView(metrics: metrics)
+                    .padding(.bottom, 8)
+            }
         }
-        .frame(height: 100)
         .overlay(
             RoundedRectangle(cornerRadius: 12).stroke(Color.blue, lineWidth: beacon.connectionState == .connected ? 2 : 0)
         )
@@ -93,7 +99,7 @@ struct BeaconRow_Previews: PreviewProvider {
     static var previews: some View {
         BeaconRow(beacon: BytixBeacon(rssi: -54, deviceName: nil,
                                       deviceId: "ffd52f3", groupId: nil,
-                                      realm: "cppk",
+                                      realm: "cppk", metrics: nil,
                                       connectionState: .connected))
     }
 }
