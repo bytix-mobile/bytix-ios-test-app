@@ -20,6 +20,10 @@ final class ContentViewModel: ObservableObject {
         self.btxManager.delegate = self
     }
     
+    var sortedBeacons: [BytixBeacon] {
+        beacons.sorted { $0.rssi ?? -1000 > $1.rssi ?? -1000 }
+    }
+    
     func startScan() {
         guard !isScanning else { return }
         isScanning = true

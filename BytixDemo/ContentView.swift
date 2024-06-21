@@ -48,12 +48,14 @@ struct ContentView: View {
     }
     
     func DeviceList() -> some View {
-        VStack(spacing: 16) {
-            ForEach(viewModel.beacons, id: \.self) { beacon in
-                BeaconRow(beacon: beacon)
-            }
-            Spacer()
-        }.padding(16)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 16) {
+                ForEach(viewModel.sortedBeacons, id: \.self) { beacon in
+                    BeaconRow(beacon: beacon)
+                }
+                Spacer()
+            }.padding(16)
+        }
     }
     
     func BottomTrailingButton() -> some View {
