@@ -12,7 +12,7 @@ struct BeaconRow: View {
     let beacon: BytixBeacon
     
     var beaconConnected: Bool { beacon.connectionState == .connected }
-    var beaconDisconnected: Bool { beacon.connectionState == .disconnected }
+    var beaconDiscovered: Bool { beacon.connectionState == .discovered }
     
     var isInfoResponsed: Bool { beacon.deviceId != nil }
     
@@ -36,7 +36,8 @@ struct BeaconRow: View {
             }
         }
         .overlay(
-            RoundedRectangle(cornerRadius: 12).stroke(Color.blue, lineWidth: beacon.connectionState == .connected ? 2 : 0)
+            RoundedRectangle(cornerRadius: 12).stroke(strokeColor,
+                                                      lineWidth: beaconDiscovered ? 0 : 2)
         )
         .background(
             RoundedRectangle(cornerRadius: 12).fill(Color("cellBackgroundColor"))
@@ -51,6 +52,7 @@ struct BeaconRow: View {
     func MainInfoPanel() -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(beacon.deviceName ?? "unknown")
+                .foregroundColor(Color(.label))
                 .font(.system(size: 14, weight: .medium))
                 .padding([.top], 8)
                 .opacity(beacon.deviceName == nil ? 0.5 : 1)
@@ -72,7 +74,7 @@ struct BeaconRow: View {
             .font(.system(size: 11, weight: .regular))
             .padding(.bottom, 8)
             
-        }
+        }.foregroundColor(Color(.label))
     }
     
     func SignalPanel() -> some View {
@@ -93,13 +95,23 @@ struct BeaconRow: View {
             return "---"
         }
     }
+    
+    var strokeColor: Color {
+        switch beacon.connectionState {
+        case .connected: Color.blue
+        case .connecting: Color.yellow
+        case .disconnected: Color.red
+        case .disconnecting: Color.orange
+        default: Color.clear
+        }
+    }
 }
 
 struct BeaconRow_Previews: PreviewProvider {
     static var previews: some View {
         BeaconRow(beacon: BytixBeacon(rssi: -54, deviceName: nil,
                                       deviceId: "ffd52f3", groupId: nil,
-                                      realm: "cppk", metrics: nil,
+                                      realm: "cppk", shortIdentifier: "DBG-186090", metrics: nil,
                                       connectionState: .connected))
     }
 }

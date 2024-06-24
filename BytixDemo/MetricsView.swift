@@ -29,7 +29,8 @@ struct MetricsView: View {
             dataCell(sysName: "sum",
                      frame: .init(width: 10, height: 15),
                      data: "\(metrics?.totalClients ?? 0)").opacity(0.5)
-        }.padding([.leading, .trailing], 18)
+        }
+        .padding([.leading, .trailing], 18)
     }
     
     func timeToString() -> String {
@@ -58,10 +59,9 @@ struct MetricsView: View {
             Image(systemName: sysName)
                 .resizable()
                 .frame(width: frame.width, height: frame.height)
-                .foregroundColor(Color(.label))
                 .scaledToFit()
             Text(data)
-        }
+        }.foregroundColor(Color(.label))
     }
 }
 
