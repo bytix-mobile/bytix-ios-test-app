@@ -12,25 +12,32 @@ struct BeaconRow: View {
     let beacon: BytixBeacon
     
     var beaconConnected: Bool { beacon.connectionState == .connected }
-    var beaconDisconnected: Bool { beacon.connectionState == .disconnected }
+    var beaconDiscovered: Bool { beacon.connectionState == .discovered }
     
     var isInfoResponsed: Bool { beacon.deviceId != nil }
     
     var body: some View {
-        HStack(spacing: 16) {
-            
-            BeaconImage()
-            
-            MainInfoPanel()
-            
-            Spacer()
-            
-            SignalPanel()
-            
+        VStack(spacing: 4) {
+            HStack(spacing: 16) {
+                
+                BeaconImage()
+                
+                MainInfoPanel()
+                
+                Spacer()
+                
+                SignalPanel()
+                
+            }
+            .frame(height: 80)
+            if let metrics = beacon.metrics {
+                MetricsView(metrics: metrics)
+                    .padding(.bottom, 8)
+            }
         }
-        .frame(height: 100)
         .overlay(
-            RoundedRectangle(cornerRadius: 12).stroke(Color.blue, lineWidth: beacon.connectionState == .connected ? 2 : 0)
+            RoundedRectangle(cornerRadius: 12).stroke(strokeColor,
+                                                      lineWidth: beaconDiscovered ? 0 : 2)
         )
         .background(
             RoundedRectangle(cornerRadius: 12).fill(Color("cellBackgroundColor"))
@@ -45,7 +52,8 @@ struct BeaconRow: View {
     func MainInfoPanel() -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(beacon.deviceName ?? "unknown")
-                .font(.system(size: 18, weight: .medium))
+                .foregroundColor(Color(.label))
+                .font(.system(size: 14, weight: .medium))
                 .padding([.top], 8)
                 .opacity(beacon.deviceName == nil ? 0.5 : 1)
             HStack(spacing: 8) {
@@ -63,10 +71,10 @@ struct BeaconRow: View {
                         .opacity(beacon.realm == nil ? 0.5 : 1)
                 }.foregroundColor(Color(.label))
             }
-            .font(.system(size: 14, weight: .regular))
+            .font(.system(size: 11, weight: .regular))
             .padding(.bottom, 8)
             
-        }
+        }.foregroundColor(Color(.label))
     }
     
     func SignalPanel() -> some View {
@@ -75,7 +83,7 @@ struct BeaconRow: View {
                 .font(.system(size: 14, weight: .regular))
                 .foregroundColor(beacon.approximateDistance == .close ? Color("beaconCloseColor") : beacon.approximateDistance == .near ? Color("beaconMediumColor") : Color("beaconFarColor"))
                 .padding(.trailing, 16)
-                .padding(.top, 8)
+                .padding(.top, 16)
             Spacer()
         }
     }
@@ -87,13 +95,23 @@ struct BeaconRow: View {
             return "---"
         }
     }
+    
+    var strokeColor: Color {
+        switch beacon.connectionState {
+        case .connected: Color.blue
+        case .connecting: Color.yellow
+        case .disconnected: Color.red
+        case .disconnecting: Color.orange
+        default: Color.clear
+        }
+    }
 }
 
 struct BeaconRow_Previews: PreviewProvider {
     static var previews: some View {
         BeaconRow(beacon: BytixBeacon(rssi: -54, deviceName: nil,
                                       deviceId: "ffd52f3", groupId: nil,
-                                      realm: "cppk",
+                                      realm: "cppk", shortIdentifier: "DBG-186090", metrics: nil,
                                       connectionState: .connected))
     }
 }
