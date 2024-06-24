@@ -14,19 +14,27 @@ struct ContentView: View {
         ZStack {
             Background()
             
-            if !viewModel.hasDevice {
-                EmptyState()
-            } else {
-                DeviceList()
-            }
-            
-            BottomTrailingButton()
+            Content()
         }
     }
-    
+}
+
+// MARK: - View building
+private extension ContentView {
     func Background() -> some View {
         Color("backgroundColor")
             .ignoresSafeArea()
+    }
+    
+    @ViewBuilder
+    func Content() -> some View {
+        if !viewModel.hasDevice {
+            EmptyState()
+        } else {
+            DeviceList()
+        }
+        
+        BottomTrailingButtons()
     }
     
     func EmptyState() -> some View {
@@ -44,28 +52,36 @@ struct ContentView: View {
             }
             
         }
-        
     }
-    
+}
+
+// MARK: - Components
+private extension ContentView {
     func DeviceList() -> some View {
-        VStack(spacing: 16) {
-            ForEach(viewModel.beacons, id: \.self) { beacon in
-                BeaconRow(beacon: beacon)
-            }
-            Spacer()
-        }.padding(16)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 16) {
+                ForEach(viewModel.sortedBeacons, id: \.self) { beacon in
+                    Button {
+                        viewModel.didBeaconTap(beacon)
+                    } label: {
+                        BeaconRow(beacon: beacon)
+                    }
+                }
+                Spacer()
+            }.padding(16)
+        }
     }
     
-    func BottomTrailingButton() -> some View {
+    func BottomTrailingButtons() -> some View {
         VStack {
             Spacer()
-            HStack {
+            HStack(spacing: 16) {
                 Spacer()
+                ButtonAutoConnectState()
                 ButtonScan()
-                    .padding(.trailing, 32)
-                    .padding(.bottom, 32)
             }
-            
+            .padding(.trailing, 32)
+            .padding(.bottom, 32)
         }
     }
     
@@ -108,10 +124,34 @@ struct ContentView: View {
                 )
         })
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: .init())
+    
+    func ButtonAutoConnectState() -> some View {
+        Button(action: {
+            viewModel.toggleAutoConnection()
+        }, label: {
+            Circle()
+                .fill(Color("scanButtonColorBg"))
+                .frame(width: 60, height: 60)
+                .overlay(
+                    ZStack {
+                        if viewModel.autoConnectionEnabled {
+                            Image(systemName: "wifi.circle")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: 30, height: 30)
+                        } else {
+                            Image(systemName: "wifi.exclamationmark.circle")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: 30, height: 30)
+                        }
+                    }
+                )
+        })
     }
 }
+
+#Preview {
+    ContentView(viewModel: .init())
+}
+

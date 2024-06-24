@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4143C87929C4E7AD00F8AAF3 /* Bytix in Frameworks */ = {isa = PBXBuildFile; productRef = 4143C87829C4E7AD00F8AAF3 /* Bytix */; };
 		4143C87B29C5089300F8AAF3 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143C87A29C5089300F8AAF3 /* MetricsView.swift */; };
 		41441693296EBFE400B42376 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41441692296EBFE400B42376 /* ContentViewModel.swift */; };
 		41441699296EE26A00B42376 /* BeaconRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41441698296EE26A00B42376 /* BeaconRow.swift */; };
-		4144169B296F1B5C00B42376 /* RadarLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144169A296F1B5C00B42376 /* RadarLoader.swift */; };
+		41AFF29B2C29A4DD003C4D21 /* Bytix in Frameworks */ = {isa = PBXBuildFile; productRef = 41AFF29A2C29A4DD003C4D21 /* Bytix */; };
 		879C207F27F4605400916D1F /* BytixDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C207E27F4605400916D1F /* BytixDemo.swift */; };
 		879C208127F4605400916D1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C208027F4605400916D1F /* ContentView.swift */; };
 		879C208327F4605500916D1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 879C208227F4605500916D1F /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 		4143C87A29C5089300F8AAF3 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		41441692296EBFE400B42376 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		41441698296EE26A00B42376 /* BeaconRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRow.swift; sourceTree = "<group>"; };
-		4144169A296F1B5C00B42376 /* RadarLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarLoader.swift; sourceTree = "<group>"; };
 		41CB31F4299A669200BE85C0 /* Bytix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bytix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		879C207B27F4605400916D1F /* BytixDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BytixDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879C207E27F4605400916D1F /* BytixDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytixDemo.swift; sourceTree = "<group>"; };
@@ -36,13 +34,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4143C87929C4E7AD00F8AAF3 /* Bytix in Frameworks */,
+				41AFF29B2C29A4DD003C4D21 /* Bytix in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		419B6EAB2C2995550087F41C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				41441698296EE26A00B42376 /* BeaconRow.swift */,
+				4143C87A29C5089300F8AAF3 /* MetricsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6FC8E16609B7FB8147C2C1FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,10 +80,8 @@
 			children = (
 				879C207E27F4605400916D1F /* BytixDemo.swift */,
 				879C208027F4605400916D1F /* ContentView.swift */,
-				41441698296EE26A00B42376 /* BeaconRow.swift */,
-				4143C87A29C5089300F8AAF3 /* MetricsView.swift */,
-				4144169A296F1B5C00B42376 /* RadarLoader.swift */,
 				41441692296EBFE400B42376 /* ContentViewModel.swift */,
+				419B6EAB2C2995550087F41C /* Components */,
 				879C208227F4605500916D1F /* Assets.xcassets */,
 				879C208427F4605500916D1F /* Preview Content */,
 			);
@@ -108,7 +113,7 @@
 			);
 			name = BytixDemo;
 			packageProductDependencies = (
-				4143C87829C4E7AD00F8AAF3 /* Bytix */,
+				41AFF29A2C29A4DD003C4D21 /* Bytix */,
 			);
 			productName = DemoApp;
 			productReference = 879C207B27F4605400916D1F /* BytixDemo.app */;
@@ -139,7 +144,7 @@
 			);
 			mainGroup = 879C207227F4605400916D1F;
 			packageReferences = (
-				4143C87729C4E7AD00F8AAF3 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */,
+				41AFF2992C29A4DD003C4D21 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */,
 			);
 			productRefGroup = 879C207C27F4605400916D1F /* Products */;
 			projectDirPath = "";
@@ -167,7 +172,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4144169B296F1B5C00B42376 /* RadarLoader.swift in Sources */,
 				879C208127F4605400916D1F /* ContentView.swift in Sources */,
 				879C207F27F4605400916D1F /* BytixDemo.swift in Sources */,
 				41441699296EE26A00B42376 /* BeaconRow.swift in Sources */,
@@ -299,10 +303,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BytixDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = 7HR546X8N8;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7HR546X8N8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -320,6 +326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bytix.demo.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bytix Demo App Testing";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -335,10 +342,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BytixDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = 7HR546X8N8;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7HR546X8N8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
@@ -356,6 +365,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.bytix.demo.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Bytix Demo App Testing";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -389,20 +399,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4143C87729C4E7AD00F8AAF3 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */ = {
+		41AFF2992C29A4DD003C4D21 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bytix-mobile/bytix-ios-sdk.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4143C87829C4E7AD00F8AAF3 /* Bytix */ = {
+		41AFF29A2C29A4DD003C4D21 /* Bytix */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4143C87729C4E7AD00F8AAF3 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */;
+			package = 41AFF2992C29A4DD003C4D21 /* XCRemoteSwiftPackageReference "bytix-ios-sdk" */;
 			productName = Bytix;
 		};
 /* End XCSwiftPackageProductDependency section */
