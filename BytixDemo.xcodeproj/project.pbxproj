@@ -10,7 +10,6 @@
 		4143C87B29C5089300F8AAF3 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143C87A29C5089300F8AAF3 /* MetricsView.swift */; };
 		41441693296EBFE400B42376 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41441692296EBFE400B42376 /* ContentViewModel.swift */; };
 		41441699296EE26A00B42376 /* BeaconRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41441698296EE26A00B42376 /* BeaconRow.swift */; };
-		4144169B296F1B5C00B42376 /* RadarLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4144169A296F1B5C00B42376 /* RadarLoader.swift */; };
 		419B6EA82C297EBC0087F41C /* Bytix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41CB31F4299A669200BE85C0 /* Bytix.framework */; };
 		419B6EA92C297EBC0087F41C /* Bytix.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 41CB31F4299A669200BE85C0 /* Bytix.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		879C207F27F4605400916D1F /* BytixDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879C207E27F4605400916D1F /* BytixDemo.swift */; };
@@ -37,7 +36,6 @@
 		4143C87A29C5089300F8AAF3 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
 		41441692296EBFE400B42376 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		41441698296EE26A00B42376 /* BeaconRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconRow.swift; sourceTree = "<group>"; };
-		4144169A296F1B5C00B42376 /* RadarLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarLoader.swift; sourceTree = "<group>"; };
 		41CB31F4299A669200BE85C0 /* Bytix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bytix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		879C207B27F4605400916D1F /* BytixDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BytixDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		879C207E27F4605400916D1F /* BytixDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BytixDemo.swift; sourceTree = "<group>"; };
@@ -58,6 +56,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		419B6EAB2C2995550087F41C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				41441698296EE26A00B42376 /* BeaconRow.swift */,
+				4143C87A29C5089300F8AAF3 /* MetricsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6FC8E16609B7FB8147C2C1FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,10 +95,8 @@
 			children = (
 				879C207E27F4605400916D1F /* BytixDemo.swift */,
 				879C208027F4605400916D1F /* ContentView.swift */,
-				41441698296EE26A00B42376 /* BeaconRow.swift */,
-				4143C87A29C5089300F8AAF3 /* MetricsView.swift */,
-				4144169A296F1B5C00B42376 /* RadarLoader.swift */,
 				41441692296EBFE400B42376 /* ContentViewModel.swift */,
+				419B6EAB2C2995550087F41C /* Components */,
 				879C208227F4605500916D1F /* Assets.xcassets */,
 				879C208427F4605500916D1F /* Preview Content */,
 			);
@@ -181,7 +186,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4144169B296F1B5C00B42376 /* RadarLoader.swift in Sources */,
 				879C208127F4605400916D1F /* ContentView.swift in Sources */,
 				879C207F27F4605400916D1F /* BytixDemo.swift in Sources */,
 				41441699296EE26A00B42376 /* BeaconRow.swift in Sources */,
