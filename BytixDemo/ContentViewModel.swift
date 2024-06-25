@@ -20,7 +20,7 @@ final class ContentViewModel: ObservableObject {
     }
     
     var sortedBeacons: [BytixBeacon] {
-        beacons.sorted { $0.rssi ?? -1000 > $1.rssi ?? -1000 }
+        beacons.sorted { $0.shortIdentifier > $1.shortIdentifier }
     }
     
     var hasDevice: Bool {
@@ -73,13 +73,7 @@ extension ContentViewModel: BytixDelegate {
     func bytix(update RSSI: Int, for device: BytixBeacon) {
         if let currentBeaconIndex = beacons.firstIndex(where: { $0.shortIdentifier == device.shortIdentifier }) {
             
-            let rssiDeltaTreshold = 9
-            let rssiDeltaTresholdSqrt = rssiDeltaTreshold * rssiDeltaTreshold
-            
-            // Для оптимизации обновляем значения сигнала при значительных изменениях
-            let diff = RSSI - (beacons[currentBeaconIndex].rssi ?? -200)
-            let diffSqrt = diff * diff
-            if diffSqrt >= rssiDeltaTresholdSqrt { beacons[currentBeaconIndex].rssi = RSSI }
+            beacons[currentBeaconIndex].rssi = RSSI
         }
     }
 }

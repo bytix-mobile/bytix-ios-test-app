@@ -26,7 +26,13 @@ struct BeaconRow: View {
                 
                 Spacer()
                 
-                SignalPanel()
+                VStack(alignment: .trailing, spacing: 8) {
+                    SignalPanel()
+                    IdentifierMark()
+                    Spacer()
+                }
+                .padding(.trailing, 16)
+                .padding(.top, 16)
                 
             }
             .frame(height: 80)
@@ -78,14 +84,16 @@ struct BeaconRow: View {
     }
     
     func SignalPanel() -> some View {
-        VStack {
-            Text(rssiText)
-                .font(.system(size: 14, weight: .regular))
-                .foregroundColor(beacon.approximateDistance == .close ? Color("beaconCloseColor") : beacon.approximateDistance == .near ? Color("beaconMediumColor") : Color("beaconFarColor"))
-                .padding(.trailing, 16)
-                .padding(.top, 16)
-            Spacer()
-        }
+        Text(rssiText)
+            .font(.system(size: 14, weight: .regular))
+            .foregroundColor(beacon.approximateDistance == .close ? Color("beaconCloseColor") : beacon.approximateDistance == .near ? Color("beaconMediumColor") : Color("beaconFarColor"))
+    }
+    
+    func IdentifierMark() -> some View {
+        Text(beacon.shortIdentifier)
+            .font(.system(size: 12))
+            .foregroundStyle(Color(.label))
+            .opacity(0.5)
     }
     
     var rssiText: String {
