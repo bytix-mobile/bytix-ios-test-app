@@ -76,4 +76,10 @@ extension ContentViewModel: BytixDelegate {
             beacons[currentBeaconIndex].rssi = RSSI
         }
     }
+    
+    func bytix(recieve CBState: BytixState) {
+        withAnimation(.easeInOut(duration: 0.2)) {
+            beacons = btxManager.getBeacons()
+        }
+    }
 }
