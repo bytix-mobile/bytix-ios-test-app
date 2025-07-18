@@ -17,10 +17,12 @@ final class ContentViewModel: ObservableObject {
     init() {
         self.btxManager = BytixSDK("BAA2A494-4BC6-4071-9723-403D06A8AC85")
         self.btxManager.delegate = self
+        self.btxManager.connectionTreshold = -80
+        self.btxManager.disconnectionTreshold = -90
     }
     
     var sortedBeacons: [BytixBeacon] {
-        beacons.sorted { $0.shortIdentifier > $1.shortIdentifier }
+        return beacons.sorted { $0.shortIdentifier > $1.shortIdentifier }
     }
     
     var hasDevice: Bool {
@@ -72,7 +74,6 @@ extension ContentViewModel: BytixDelegate {
     
     func bytix(update RSSI: Int, for device: BytixBeacon) {
         if let currentBeaconIndex = beacons.firstIndex(where: { $0.shortIdentifier == device.shortIdentifier }) {
-            
             beacons[currentBeaconIndex].rssi = RSSI
         }
     }

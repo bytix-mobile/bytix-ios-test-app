@@ -10,7 +10,7 @@ import Bytix
 
 struct MetricsView: View {
     
-    let metrics: BytixBeacon.BytixMetrics?
+    let metrics: HardwareStats?
     
     var body: some View {
         HStack(spacing: 0) {

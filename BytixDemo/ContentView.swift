@@ -60,11 +60,13 @@ private extension ContentView {
     func DeviceList() -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
-                ForEach(viewModel.sortedBeacons, id: \.self) { beacon in
+                ForEach(viewModel.sortedBeacons.indices, id: \.self) { index in
+                    let beacon = viewModel.sortedBeacons[index]
                     Button {
                         viewModel.didBeaconTap(beacon)
                     } label: {
                         BeaconRow(beacon: beacon)
+                            .id("\(beacon.shortIdentifier)-\(beacon.rssi ?? 0)")
                     }
                 }
                 Spacer()

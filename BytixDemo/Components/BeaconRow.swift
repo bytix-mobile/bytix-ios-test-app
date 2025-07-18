@@ -13,9 +13,7 @@ struct BeaconRow: View {
     
     var beaconConnected: Bool { beacon.connectionState == .connected }
     var beaconDiscovered: Bool { beacon.connectionState == .discovered }
-    
-    var isInfoResponsed: Bool { beacon.deviceId != nil }
-    
+        
     var body: some View {
         VStack(spacing: 4) {
             HStack(spacing: 16) {
@@ -36,8 +34,8 @@ struct BeaconRow: View {
                 
             }
             .frame(height: 80)
-            if let metrics = beacon.metrics {
-                MetricsView(metrics: metrics)
+            if let hardwareStats = beacon.hardwareStats {
+                MetricsView(metrics: hardwareStats)
                     .padding(.bottom, 8)
             }
         }
@@ -119,7 +117,7 @@ struct BeaconRow_Previews: PreviewProvider {
     static var previews: some View {
         BeaconRow(beacon: BytixBeacon(rssi: -54, deviceName: nil,
                                       deviceId: "ffd52f3", groupId: nil,
-                                      realm: "cppk", shortIdentifier: "DBG-186090", metrics: nil,
+                                      realm: "cppk", shortIdentifier: "DBG-186090", hardwareStats: nil,
                                       connectionState: .connected))
     }
 }
